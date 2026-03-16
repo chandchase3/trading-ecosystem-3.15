@@ -1,29 +1,14 @@
 import { useSelector } from "react-redux";
 import styles from "../../WorkspaceLayout.module.css";
-import { panelRegistry } from "../../../views/panels/panelRegistry";
+import TopColumnView from "../../TopColumnView";
 
 export default function PrimaryTopView({ viewId, panel }) {
-
   const viewState = useSelector(
     state => state.workspace.bottomWindowViewData[panel]
   );
-
   if (!viewState) return null;
 
   const { overlay, height: secondaryHeight, visible: secondaryVisible } = viewState;
-
-  const tabState = useSelector(
-    state => state.viewTabs.viewTabs[viewId]
-  );
-
-  const tab = useSelector(
-    state => state.viewTabs.tabs[tabState?.activeTab]
-  );
-
-  if (!tab) return null;
-
-  const Panel = panelRegistry[tab.viewType];
-
   return (
     <div
       className={styles.mainContentWrapper}
@@ -35,7 +20,7 @@ export default function PrimaryTopView({ viewId, panel }) {
       }}
     >
       <main className={styles.mainContent}>
-        <Panel {...tab.data} />
+        <TopColumnView viewId={viewId} />
       </main>
     </div>
   );

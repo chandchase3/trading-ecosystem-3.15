@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setMiddleBottomWindowHeight, setLeftBottomWindowHeight, setRightBottomWindowHeight } from "../../../workspaceSlice";
 import { useState, useCallback } from "react";
 import styles from "./BottomOverlayView.module.css";
-import { panelRegistry } from "../../../views/panels/panelRegistry";
+import TopColumnView from "../../TopColumnView";
 
 export default function BottomOverlayView({ viewId, panel }) {
   console.log("rendering bottom overlay")
@@ -47,15 +47,7 @@ export default function BottomOverlayView({ viewId, panel }) {
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseup", onMouseUp);
   }, [dispatch, height, minHeight, maxHeight, panel]);
-
-
-
   
-  // ============ Panel Registry ==============
-  const view = useSelector((state) => state.views.views[viewId]);
-  if (!view) return null;
-  
-  const Panel = panelRegistry[view.viewType];
   return (
     <div
       className={styles.secondaryPanel}
@@ -67,7 +59,8 @@ export default function BottomOverlayView({ viewId, panel }) {
       <div className={styles.resizeHandle} onMouseDown={startResize} />
         <div className={styles.panelContent}>
           
-        <Panel {...view.data} />
+        <TopColumnView viewId={viewId} />
+        
       </div>
 
     </div>
