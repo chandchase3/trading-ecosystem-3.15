@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setLeftPanelWidth, setRightPanelWidth } from '../../workspaceSlice';
+import { setLeftPanelWidth, setRightPanelWidth } from '../../../workspaceSlice';
 import styles from './ResizableColumnShell.module.css';
 
 export default function ResizableColumnShell({ panel, direction, children }) {

@@ -6,11 +6,13 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import WatchlistPage from './pages/WatchlistPage';
 import KrakenPage from './pages/KrakenPage';
+import ProvidersLayer from './providers/ProvidersLayer';
 import PrivateRoute from './auth/PrivateRoute'; // we’ll create this next
 
 function App() {
   return (
     <Provider store={store}>
+            <ProvidersLayer />
       <Router>
         <Routes>
           <Route path="/login" element={<LoginPage />} />

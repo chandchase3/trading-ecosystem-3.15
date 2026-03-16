@@ -1,16 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setMiddleBottomWindowHeight, setLeftBottomWindowHeight, setRightBottomWindowHeight } from "../../workspaceSlice";
+import { setMiddleBottomWindowHeight, setLeftBottomWindowHeight, setRightBottomWindowHeight } from "../../../workspaceSlice";
 import { useState, useCallback } from "react";
-import styles from "./LowerOverlayView.module.css";
+import styles from "./BottomOverlayView.module.css";
+import { panelRegistry } from "../../../views/panels/panelRegistry";
 
-export default function LowerOverlayView({ viewId, panel }) {
+export default function BottomOverlayView({ viewId, panel }) {
+  console.log("rendering bottom overlay")
   const dispatch = useDispatch();
   const { height, minHeight, maxHeight } = useSelector(
     (state) => state.workspace.bottomWindowViewData[panel]
   );
 
-  const view = useSelector((state) => state.views.views[viewId]);
-  if (!view) return null;
+  // const Panel = panelRegistry[view.viewType];
 
   const [dragHeight, setDragHeight] = useState(height);
   const [dragging, setDragging] = useState(false);
@@ -47,6 +48,14 @@ export default function LowerOverlayView({ viewId, panel }) {
     window.addEventListener("mouseup", onMouseUp);
   }, [dispatch, height, minHeight, maxHeight, panel]);
 
+
+
+  
+  // ============ Panel Registry ==============
+  const view = useSelector((state) => state.views.views[viewId]);
+  if (!view) return null;
+  
+  const Panel = panelRegistry[view.viewType];
   return (
     <div
       className={styles.secondaryPanel}
@@ -56,9 +65,10 @@ export default function LowerOverlayView({ viewId, panel }) {
       }}
     >
       <div className={styles.resizeHandle} onMouseDown={startResize} />
-      <div className={styles.panelContent}>
-        {view.data && view.data.scannerName && <div>{view.data.scannerName}</div>}
+        <div className={styles.panelContent}>
+        <Panel {...view.data} />
       </div>
+
     </div>
   );
 }

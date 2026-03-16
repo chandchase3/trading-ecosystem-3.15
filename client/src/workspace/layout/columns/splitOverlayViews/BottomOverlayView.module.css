@@ -23,7 +23,7 @@
   width: 100%;
   height: 6px;
   cursor: ns-resize;
-  z-index: 1000; /* always above everything */
+  z-index: 5000; /* always above everything */
   background: rgba(255, 255, 255, 0.05);
 }
 

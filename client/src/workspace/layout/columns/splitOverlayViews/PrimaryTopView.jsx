@@ -1,21 +1,18 @@
 import { useSelector } from "react-redux";
-import styles from "../../layout/MainLayout.module.css";
-import { panelRegistry } from "../../views/panels/panelRegistry";
+import styles from "../../WorkspaceLayout.module.css";
+import { panelRegistry } from "../../../views/panels/panelRegistry";
 
-export default function TopWorkspaceShell({ viewId, panel }) {
+export default function PrimaryTopView({ viewId, panel }) {
   console.log("this log does appera in console")
   const viewState = useSelector(
     (state) => state.workspace.bottomWindowViewData[panel]
   )
   if (!viewState) return null; 
-    
     const { overlay, height: secondaryHeight, visible: secondaryVisible } = viewState;
-
-    const view = useSelector(
-    state => state.views.views[viewId]
-  );
-
-  if (!view) return <p>hi</p>;
+  
+    // ============ Panel Registry ==============
+  const view = useSelector((state) => state.views.views[viewId]);
+  if (!view) return <p>dsfl;ksadf</p>;
 
   const Panel = panelRegistry[view.viewType];
   return (

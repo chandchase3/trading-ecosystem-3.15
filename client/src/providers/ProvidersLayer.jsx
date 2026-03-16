@@ -6,7 +6,6 @@ const ProvidersLayer = () => {
   return (
     <>
       <KrakenStreamManager />
-      {/* Future: <BinanceStreamManager /> */}
     </>
   );
 };

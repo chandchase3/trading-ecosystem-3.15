@@ -23,11 +23,11 @@ const initialState = {
   views: {
     1: createView(1, "scanner", "LeftTop", { scannerName: "largeCapCrypto" }),
     2: createView(2, "scanner", "MidTop", { scannerName: "topAltcoins" }),
-    3: createView(3, "scanner", "RightTop", { scannerName: "watchlist" }),
+    3: createView(3, "scanner", "RightTop", { scannerName: "topAltcoins" }),
 
-    101: createView(101, "scanner", "LeftBottom", { scannerName: "defiLeaders" }),
-    102: createView(102, "scanner", "MidBottom", { scannerName: "topFiveCrypto" }),
-    103: createView(103, "scanner", "RightBottom", { scannerName: "alerts" }),
+    101: createView(101, "scanner", "LeftBottom", { scannerName: "topAltcoins" }),
+    102: createView(102, "scanner", "MidBottom", { scannerName: "topAltcoins" }),
+    103: createView(103, "scanner", "RightBottom", { scannerName: "topAltcoins" }),
   }
 };
 

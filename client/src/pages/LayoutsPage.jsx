@@ -1,10 +1,10 @@
 // src/pages/LayoutsPage.jsx
-import MainLayout from '../workspace/dashboard/mainLayout/MainLayout';
+import WorkspaceLayout from '../workspace/dashboard/WorkspaceLayout/WorkspaceLayout';
 
 export default function LayoutsPage() {
   return (
-    <MainLayout>
+    <WorkspaceLayout>
       <p>Layouts Page — Dynamic Columns Sandbox</p>
-    </MainLayout>
+    </WorkspaceLayout>
   );
 }

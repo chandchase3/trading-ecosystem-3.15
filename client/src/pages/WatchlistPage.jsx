@@ -1,4 +1,4 @@
-// import MainLayout from '../workspace/dashboard/mainLayout/MainLayout';
+// import WorkspaceLayout from '../workspace/dashboard/WorkspaceLayout/WorkspaceLayout';
 
 export default function WatchlistPage() {
   return (
