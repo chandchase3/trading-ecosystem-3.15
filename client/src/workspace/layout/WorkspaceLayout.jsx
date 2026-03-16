@@ -10,9 +10,9 @@ export default function WorkspaceLayout() {
       <TopNav />
 
       <div className={styles.body}>
-        <ColumnLayout panel="leftPanel" colId={1} direction="left" topView={1} bottomView={101} />
-        <ColumnLayout panel="midPanel"colId={2} topView={2} bottomView={102} />
-        <ColumnLayout panel="rightPanel" colId={3}  direction="right" topView={3} bottomView={103} />
+<ColumnLayout colId={1} panel="leftPanel" direction="left" />
+<ColumnLayout colId={2} panel="midPanel" />
+<ColumnLayout colId={3} panel="rightPanel" direction="right" />
       </div>
       <BottomNav />
     </div>

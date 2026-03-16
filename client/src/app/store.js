@@ -6,6 +6,7 @@ import workspaceReducer from '../workspace/workspaceSlice';
 import viewReducer from '../workspace/viewSlice';
 import scannerReducer from '../features/scanner/scannerSlice';
 import krakenReducer from '../features/kraken/krakenSlice';
+import viewTabsReducer from "../workspace/viewTabsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,5 +17,7 @@ export const store = configureStore({
     views: viewReducer,
     scanner: scannerReducer,
     kraken: krakenReducer,
+
+    viewTabs: viewTabsReducer
   }
 });
