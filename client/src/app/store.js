@@ -5,6 +5,7 @@ import cryptoReducer from '../features/crypto/cryptoSlice';
 import workspaceReducer from '../workspace/workspaceSlice';
 import scannerReducer from '../features/scanner/scannerSlice';
 import krakenReducer from '../features/kraken/krakenSlice';
+import viewReducer from '../workspace/viewSlice';
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     workspace: workspaceReducer,
     scanner: scannerReducer,
     kraken: krakenReducer,
+        views: viewReducer
   }
 });
