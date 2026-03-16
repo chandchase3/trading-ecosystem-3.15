@@ -20,21 +20,21 @@ export default function MainLayout() {
 
         <SideColumnShell panel="leftPanel" direction="left">
           <TopWorkspaceShell view="left">
-            <LeftWindowLayoutTop />
+            <div>hi</div>
           </TopWorkspaceShell>
 
             <BottomWorkspaceShell view="left">
-              <LeftWindowLayoutBottom />
+            <div>hi</div>
             </BottomWorkspaceShell>
         </SideColumnShell>
 
         <SideColumnShell panel="midPanel">
           <TopWorkspaceShell view="mid">
-            <MiddleWindowLayoutTop />
+            <div>hi</div>
           </TopWorkspaceShell>
 
           <BottomWorkspaceShell view="mid">
-            <MiddleWindowLayoutBottom />
+            <div>hi</div>
           </BottomWorkspaceShell>
         </SideColumnShell>
 
