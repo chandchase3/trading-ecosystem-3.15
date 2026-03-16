@@ -1,0 +1,40 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  background: #0f0f0f;
+  border-right: 1px solid #333;
+  min-width: 0; /* important for flex children */
+}
+
+.content {
+  flex: 1 1 auto; /* content grows to fill space above bottom panel */
+  min-height: 0;
+  overflow: hidden; /* scroll only inside internal panel content if needed */
+  display: flex;
+  flex-direction: column;
+}
+
+.bottomPanelWrapper {
+  flex: 0 0 auto; /* always at bottom, does not grow */
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2000;
+}
+/* Resize handle */
+.resizeHandle {
+  position: absolute;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  cursor: ew-resize;
+  background: transparent;
+}
+
+.resizeHandle:hover {
+  background: rgba(255,255,255,0.1);
+}
