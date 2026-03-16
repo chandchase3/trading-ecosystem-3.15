@@ -5,7 +5,6 @@ import { defaultTabs } from './views/panels/defaultPanels/defaultTabs';
 TAB FACTORY
 */
 function createTab(windowId, tabId, templateName = "Default") {
-
   const template = defaultTabs[templateName];
 
   return {
@@ -34,22 +33,16 @@ function createTab(windowId, tabId, templateName = "Default") {
 WINDOW FACTORY
 */
 function createWindow(windowId, defaultTabId, template="Default") {
-
   return {
-
     id: windowId,
-
     activeTab: defaultTabId,
-
     tabOrder: [defaultTabId],
-
     meta: {
       theme: "dark",
       accentColor: "#4f46e5",
       locked: false,
       allowNewTabs: true
     },
-
     tabs: {
       [defaultTabId]: createTab(windowId, defaultTabId, template)
     }
@@ -59,7 +52,6 @@ function createWindow(windowId, defaultTabId, template="Default") {
 /*
 MIDDLE WINDOWS
 */
-
 const midTopWindow = createWindow("midTop", "default-2a", "Scanner");
 midTopWindow.tabs["default-2a"].data.scannerName = "topAltcoins";
 
@@ -69,7 +61,6 @@ midBottomWindow.tabs["default-2b"].data.scannerName = "topFiveCrypto";
 /*
 LEFT WINDOWS
 */
-
 const leftTopWindow = createWindow("leftTop", "default-1a", "Scanner");
 leftTopWindow.tabs["default-1a"].data.scannerName = "largeCapCrypto";
 
@@ -79,9 +70,7 @@ leftBottomWindow.tabs["default-1b"].data.scannerName = "defiLeaders";
 /*
 INITIAL STATE
 */
-
 const initialState = {
-
   topNav: { visible: true, height: 50 },
   bottomNav: { visible: true, height: 50 },
 
@@ -93,6 +82,13 @@ const initialState = {
     maxWidth: 1700,
   },
 
+  midPanel: { // ✅ Added middle panel
+    visible: true,
+    width: 0, // will grow with flex
+    minWidth: 0,
+    maxWidth: 0,
+  },
+
   rightPanel: {
     config: { type: "split", feature: "watchlist", widgets: [] },
     visible: true,
@@ -102,20 +98,15 @@ const initialState = {
   },
 
   windowLayouts: {
-
     leftTop: leftTopWindow,
     leftBottom: leftBottomWindow,
-
     midTop: midTopWindow,
     midBottom: midBottomWindow,
-
     rightTop: createWindow("rightTop", "default-3a", "Watchlist"),
     rightBottom: createWindow("rightBottom", "default-3b", "Alerts"),
-
   },
 
   bottomWindowViewData: {
-
     midView: {
       visible: true,
       overlay: true,
@@ -123,7 +114,6 @@ const initialState = {
       minHeight: 25,
       maxHeight: 3000,
     },
-
     leftView: {
       visible: true,
       overlay: true,
@@ -131,7 +121,6 @@ const initialState = {
       minHeight: 25,
       maxHeight: 3000,
     },
-
     rightView: {
       visible: true,
       overlay: true,
@@ -139,41 +128,32 @@ const initialState = {
       minHeight: 25,
       maxHeight: 3000,
     },
-
   }
-
 };
 
 const workspaceSlice = createSlice({
-
   name: 'workspace',
-
   initialState,
-
   reducers: {
-
     toggleLeftPanel(state) {
       state.leftPanel.visible = !state.leftPanel.visible;
     },
-
+    toggleMiddlePanel(state) { // ✅ added for future dynamic control
+      state.midPanel.visible = !state.midPanel.visible;
+    },
     toggleRightPanel(state) {
       state.rightPanel.visible = !state.rightPanel.visible;
     },
 
     setLeftPanelWidth(state, action) {
-
       const w = action.payload;
-
       state.leftPanel.width = Math.max(
         state.leftPanel.minWidth,
         Math.min(w, state.leftPanel.maxWidth)
       );
     },
-
     setRightPanelWidth(state, action) {
-
       const w = action.payload;
-
       state.rightPanel.width = Math.max(
         state.rightPanel.minWidth,
         Math.min(w, state.rightPanel.maxWidth)
@@ -181,59 +161,40 @@ const workspaceSlice = createSlice({
     },
 
     setMiddleBottomWindowHeight(state, action) {
-
       const view = state.bottomWindowViewData.midView;
       const h = action.payload;
-
-      view.height = Math.max(
-        view.minHeight,
-        Math.min(h, view.maxHeight)
-      );
+      view.height = Math.max(view.minHeight, Math.min(h, view.maxHeight));
     },
-
     toggleMiddleBottomWindowVisible(state) {
       state.bottomWindowViewData.midView.visible =
         !state.bottomWindowViewData.midView.visible;
     },
 
     setLeftBottomWindowHeight(state, action) {
-
       const view = state.bottomWindowViewData.leftView;
       const h = action.payload;
-
-      view.height = Math.max(
-        view.minHeight,
-        Math.min(h, view.maxHeight)
-      );
+      view.height = Math.max(view.minHeight, Math.min(h, view.maxHeight));
     },
-
     toggleLeftBottomWindowVisible(state) {
       state.bottomWindowViewData.leftView.visible =
         !state.bottomWindowViewData.leftView.visible;
     },
 
     setRightBottomWindowHeight(state, action) {
-
       const view = state.bottomWindowViewData.rightView;
       const h = action.payload;
-
-      view.height = Math.max(
-        view.minHeight,
-        Math.min(h, view.maxHeight)
-      );
+      view.height = Math.max(view.minHeight, Math.min(h, view.maxHeight));
     },
-
     toggleRightBottomWindowVisible(state) {
       state.bottomWindowViewData.rightView.visible =
         !state.bottomWindowViewData.rightView.visible;
     }
-
   }
-
 });
 
 export const {
   toggleLeftPanel,
+  toggleMiddlePanel,
   toggleRightPanel,
   setLeftPanelWidth,
   setRightPanelWidth,

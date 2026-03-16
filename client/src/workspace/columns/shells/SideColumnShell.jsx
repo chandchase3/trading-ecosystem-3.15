@@ -6,9 +6,10 @@ export default function SideColumnShell({ panel, direction, children }) {
   const dispatch = useDispatch();
   const state = useSelector((s) => s.workspace[panel]);
 
-  if (!state.visible) return null;
+  if (!state?.visible) return null;
 
   const startResize = (e) => {
+    if (!direction) return; // middle column: no resize
     e.preventDefault();
     const startX = e.clientX;
     const startWidth = state.width;
@@ -19,9 +20,10 @@ export default function SideColumnShell({ panel, direction, children }) {
 
       if (panel === 'leftPanel') {
         dispatch(setLeftPanelWidth(newWidth));
-      } else {
+      } else if (panel === 'rightPanel') {
         dispatch(setRightPanelWidth(newWidth));
       }
+      // mid panel: no resize
     };
 
     const stop = () => {
@@ -34,18 +36,27 @@ export default function SideColumnShell({ panel, direction, children }) {
   };
 
   return (
-    <div className={styles.panel} style={{ width: state.width }}>
+    <div
+      className={styles.panel}
+      style={{
+        width: direction ? state.width : 'auto', // middle: auto width
+        flex: panel === 'midPanel' ? 1 : 'none', // middle grows to fill
+      }}
+    >
       <div className={styles.content}>
-        {children /* LeftColumnLayoutMain will render Top + Bottom Workspace */}
+        {children /* Top + Bottom workspace or dynamic content */}
       </div>
-      <div
-        className={styles.resizeHandle}
-        style={{
-          right: direction === 'left' ? 0 : 'auto',
-          left: direction === 'right' ? 0 : 'auto',
-        }}
-        onMouseDown={startResize}
-      />
+
+      {direction && (
+        <div
+          className={styles.resizeHandle}
+          style={{
+            right: direction === 'left' ? 0 : 'auto',
+            left: direction === 'right' ? 0 : 'auto',
+          }}
+          onMouseDown={startResize}
+        />
+      )}
     </div>
   );
 }

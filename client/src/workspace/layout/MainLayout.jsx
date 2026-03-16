@@ -28,7 +28,7 @@ export default function MainLayout() {
             </BottomWorkspaceShell>
         </SideColumnShell>
 
-        <div className={styles.mainColumn}>
+        <SideColumnShell panel="midPanel">
           <TopWorkspaceShell view="mid">
             <MiddleWindowLayoutTop />
           </TopWorkspaceShell>
@@ -36,7 +36,7 @@ export default function MainLayout() {
           <BottomWorkspaceShell view="mid">
             <MiddleWindowLayoutBottom />
           </BottomWorkspaceShell>
-        </div>
+        </SideColumnShell>
 
         <SideColumnShell panel="rightPanel" direction="right">
           <TopWorkspaceShell view="right">
