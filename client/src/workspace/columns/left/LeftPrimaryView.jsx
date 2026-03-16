@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { panelRegistry } from "../panelRegistry";
 
-export default function LeftWindowLayoutTop() {
+export default function LeftPrimaryView() {
 
   const window = useSelector(
     (state) => state.workspace.windowLayouts.leftTop

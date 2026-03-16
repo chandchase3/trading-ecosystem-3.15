@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setLeftPanelWidth, setRightPanelWidth } from '../../workspaceSlice';
+import { setLeftPanelWidth, setRightPanelWidth } from '../workspaceSlice';
 import styles from './SideColumnShell.module.css';
 
 export default function SideColumnShell({ panel, direction, children }) {
@@ -36,7 +36,7 @@ export default function SideColumnShell({ panel, direction, children }) {
   return (
     <div className={styles.panel} style={{ width: state.width }}>
       <div className={styles.content}>
-        {children /* LeftColumnLayoutMain will render Top + Bottom Workspace */}
+        {children /* LeftColumnLayout will render Top + Bottom Workspace */}
       </div>
       <div
         className={styles.resizeHandle}

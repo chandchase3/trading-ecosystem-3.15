@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 import TopWorkspaceShell from "../shells/TopWorkspaceShell";
 import BottomWorkspaceShell from "../shells/BottomWorkspaceShell";
-import LeftWindowLayoutTop from "./LeftWindowLayoutTop";
-import LeftWindowLayoutBottom from "./LeftWindowLayoutBottom";
+import LeftPrimaryView from "./LeftPrimaryView";
+import LeftOverlayView from "./LeftOverlayView";
 
-export default function LeftColumnLayoutMain() {
+export default function LeftColumnLayout() {
   const { visible } = useSelector(
     (state) => state.workspace.bottomWindowViewData.leftView
   );
@@ -14,13 +14,12 @@ export default function LeftColumnLayoutMain() {
   return (
     <>
       <TopWorkspaceShell view="left">
-        <LeftWindowLayoutTop />
+        <LeftPrimaryView />
       </TopWorkspaceShell>
 
-      {/* Add bottom panel wrapper to push it to bottom */}
       <div style={{ marginTop: 'auto' }}>
         <BottomWorkspaceShell view="left">
-          <LeftWindowLayoutBottom />
+          <LeftOverlayView />
         </BottomWorkspaceShell>
       </div>
     </>

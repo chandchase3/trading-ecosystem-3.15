@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { panelRegistry } from "../panelRegistry";
 
-export default function LeftWindowLayoutBottom() {
+export default function LeftOverlayView() {
 
   const window = useSelector(
     (state) => state.workspace.windowLayouts.leftBottom
