@@ -1,13 +1,6 @@
 import TopNav from '../navs/TopNav';
 import BottomNav from '../navs/BottomNav';
-import SideColumnShell from "../columns/shells/SideColumnShell";
-import TopWorkspaceShell from "../columns/shells/TopWorkspaceShell";
-import BottomWorkspaceShell from "../columns/shells/BottomWorkspaceShell";
-import LeftWindowLayoutTop from "./LeftWindowLayoutTop";
-import LeftWindowLayoutBottom from "./LeftWindowLayoutBottom";
-import MiddleWindowLayoutTop from "./MiddleWindowLayoutTop";
-import MiddleWindowLayoutBottom from "./MiddleWindowLayoutBottom";
-
+import ColumnLayout from "./ColumnLayout";
 import styles from './MainLayout.module.css';
 
 export default function MainLayout() {
@@ -17,38 +10,11 @@ export default function MainLayout() {
       <TopNav />
 
       <div className={styles.body}>
-
-        <SideColumnShell panel="leftPanel" direction="left">
-          <TopWorkspaceShell view="left">
-            <div>hi</div>
-          </TopWorkspaceShell>
-
-            <BottomWorkspaceShell view="left">
-            <div>hi</div>
-            </BottomWorkspaceShell>
-        </SideColumnShell>
-
-        <SideColumnShell panel="midPanel">
-          <TopWorkspaceShell view="mid">
-            <div>hi</div>
-          </TopWorkspaceShell>
-
-          <BottomWorkspaceShell view="mid">
-            <div>hi</div>
-          </BottomWorkspaceShell>
-        </SideColumnShell>
-
-        <SideColumnShell panel="rightPanel" direction="right">
-          <TopWorkspaceShell view="right">
-            <div>hi</div>
-          </TopWorkspaceShell>
-          <BottomWorkspaceShell view="right">
-            <div>hi </div>
-          </BottomWorkspaceShell>
-        </SideColumnShell>
-
+        <ColumnLayout panel="leftPanel" topView={1} bottomView={101} />
+        <ColumnLayout panel="midPanel" topView={2} bottomView={102} />
+        <ColumnLayout panel="rightPanel" topView={3} bottomView={103} />
       </div>
       <BottomNav />
     </div>
   );
-}
+}4 

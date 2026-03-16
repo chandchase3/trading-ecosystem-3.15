@@ -107,21 +107,21 @@ const initialState = {
   },
 
   bottomWindowViewData: {
-    midView: {
+    midPanel: {
       visible: true,
       overlay: true,
       height: 200,
       minHeight: 25,
       maxHeight: 3000,
     },
-    leftView: {
+    leftPanel: {
       visible: true,
       overlay: true,
       height: 200,
       minHeight: 25,
       maxHeight: 3000,
     },
-    rightView: {
+    rightPanel: {
       visible: true,
       overlay: true,
       height: 200,
@@ -161,33 +161,33 @@ const workspaceSlice = createSlice({
     },
 
     setMiddleBottomWindowHeight(state, action) {
-      const view = state.bottomWindowViewData.midView;
+      const view = state.bottomWindowViewData.midPanel;
       const h = action.payload;
       view.height = Math.max(view.minHeight, Math.min(h, view.maxHeight));
     },
     toggleMiddleBottomWindowVisible(state) {
-      state.bottomWindowViewData.midView.visible =
-        !state.bottomWindowViewData.midView.visible;
+      state.bottomWindowViewData.midPanel.visible =
+        !state.bottomWindowViewData.midPanel.visible;
     },
 
     setLeftBottomWindowHeight(state, action) {
-      const view = state.bottomWindowViewData.leftView;
+      const view = state.bottomWindowViewData.leftPanel;
       const h = action.payload;
       view.height = Math.max(view.minHeight, Math.min(h, view.maxHeight));
     },
     toggleLeftBottomWindowVisible(state) {
-      state.bottomWindowViewData.leftView.visible =
-        !state.bottomWindowViewData.leftView.visible;
+      state.bottomWindowViewData.leftPanel.visible =
+        !state.bottomWindowViewData.leftPanel.visible;
     },
 
     setRightBottomWindowHeight(state, action) {
-      const view = state.bottomWindowViewData.rightView;
+      const view = state.bottomWindowViewData.rightPanel;
       const h = action.payload;
       view.height = Math.max(view.minHeight, Math.min(h, view.maxHeight));
     },
     toggleRightBottomWindowVisible(state) {
-      state.bottomWindowViewData.rightView.visible =
-        !state.bottomWindowViewData.rightView.visible;
+      state.bottomWindowViewData.rightPanel.visible =
+        !state.bottomWindowViewData.rightPanel.visible;
     }
   }
 });

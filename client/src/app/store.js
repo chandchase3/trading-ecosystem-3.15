@@ -3,6 +3,7 @@ import authReducer from '../auth/authSlice';
 import watchlistsReducer from '../features/watchlists/watchlistsSlice';
 import cryptoReducer from '../features/crypto/cryptoSlice';
 import workspaceReducer from '../workspace/workspaceSlice';
+import viewReducer from '../workspace/viewSlice';
 import scannerReducer from '../features/scanner/scannerSlice';
 import krakenReducer from '../features/kraken/krakenSlice';
 
@@ -10,8 +11,9 @@ export const store = configureStore({
   reducer: {
     auth: authReducer,
     watchlists: watchlistsReducer,
-    crypto: cryptoReducer,
     workspace: workspaceReducer,
+    crypto: cryptoReducer,
+    views: viewReducer,
     scanner: scannerReducer,
     kraken: krakenReducer,
   }
