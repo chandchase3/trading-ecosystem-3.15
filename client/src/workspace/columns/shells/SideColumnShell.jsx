@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setLeftPanelWidth, setRightPanelWidth } from '../../../workspaceSlice';
+import { setLeftPanelWidth, setRightPanelWidth } from '../../workspaceSlice';
 import styles from './SideColumnShell.module.css';
 
 export default function SideColumnShell({ panel, direction, children }) {

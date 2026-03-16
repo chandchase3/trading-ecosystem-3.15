@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { defaultTabs } from './dashboard/windows/defaultPanels/defaultTabs';
+import { defaultTabs } from './views/panels/defaultPanels/defaultTabs';
 
 /*
 TAB FACTORY

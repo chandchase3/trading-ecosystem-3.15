@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { panelRegistry } from "../windows/panels/panelRegistry";
+import { panelRegistry } from "../panelRegistry";
 
 export default function LeftWindowLayoutTop() {
 

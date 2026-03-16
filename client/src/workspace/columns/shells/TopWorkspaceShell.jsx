@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import styles from "../../MainLayout/MainLayout.module.css";
+import styles from "../../layout/MainLayout.module.css";
 
 export default function TopWorkspaceShell({ children, view = "mid" }) {
   const viewState = useSelector(

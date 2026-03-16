@@ -1,4 +1,4 @@
-import MainLayout from '../workspace/dashboard/mainLayout/MainLayout';
+import MainLayout from '../workspace/layout/MainLayout';
 // import StartScanner from '../layouts/kraken/StartScanner';
 import KrakenStreamManager from '../providers/kraken/KrakenStreamManager';
 

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import TopWorkspaceShell from "../columnLayoutMiddle/midShells/TopWorkspaceShell";
-import BottomWorkspaceShell from "../columnLayoutMiddle/midShells/BottomWorkspaceShell";
+import TopWorkspaceShell from "../shells/TopWorkspaceShell";
+import BottomWorkspaceShell from "../shells/BottomWorkspaceShell";
 import LeftWindowLayoutTop from "./LeftWindowLayoutTop";
 import LeftWindowLayoutBottom from "./LeftWindowLayoutBottom";
 

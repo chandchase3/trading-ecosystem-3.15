@@ -3,7 +3,7 @@ import {
   setMiddleBottomWindowHeight,
   setLeftBottomWindowHeight,
   setRightBottomWindowHeight
-} from "../../../workspaceSlice";
+} from "../../workspaceSlice";
 
 import { useState } from "react";
 import styles from "./BottomWorkspaceShell.module.css";
