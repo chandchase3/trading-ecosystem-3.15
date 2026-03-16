@@ -66,6 +66,7 @@ export default function BottomOverlayView({ viewId, panel }) {
     >
       <div className={styles.resizeHandle} onMouseDown={startResize} />
         <div className={styles.panelContent}>
+          
         <Panel {...view.data} />
       </div>
 
